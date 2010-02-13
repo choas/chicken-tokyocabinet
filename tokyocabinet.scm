@@ -421,7 +421,7 @@
 
 ;; delete tc-list when finished
 (define (tc-bdb-put-tc-list bdb key tc-list)
-  (%tc-bdb-putdup3 bdb key (string-length key) tc-list))
+  (%tc-bdb-putdup3 bdb key (string-length key) (tc-list-ptr tc-list)))
 
 ;; delete tc-list when finished
 ;; negative max for no limit
