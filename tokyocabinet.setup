@@ -1,0 +1,8 @@
+
+(compile -s -O2 -f -d0 -X easyffi -j tokyocabinet tokyocabinet.scm -ltokyocabinet)
+(compile -s -O2 -d0 tokyocabinet.import.scm)
+
+(install-extension
+ 'tokyocabinet
+ '("tokyocabinet.so" "tokyocabinet.import.so")
+ '((version 1.06)))

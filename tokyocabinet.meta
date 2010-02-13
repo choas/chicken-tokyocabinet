@@ -1,0 +1,16 @@
+;;; tokyocabinet.meta -*- Hen -*-
+
+((egg "tokyocabinet.egg")
+ (synopsis "Tokyo Cabinet DBM interface")
+ (category db)
+ (license "BSD")
+ (author "Alex Shinn")
+ (doc-from-wiki)
+ (needs easyffi)
+ (files "tcutilapi.h"
+ 	"tchdbapi.h"
+	"tcbdbapi.h"
+	"tctdbapi.h"
+	"tokyocabinet.scm"
+	"tokyocabinet.setup"
+	"tokyocabinet.html"))
