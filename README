@@ -1,0 +1,30 @@
+Tokyo Cabinet for Chicken Scheme
+
+Tokyo Cabinet:
+http://1978th.net/tokyocabinet
+
+Chicken Scheme:
+http://www.call-with-current-continuation.org/
+
+
+This code is based on the tokyocabinet egg from Alex Shinn. Evan Eusey has 
+expanded it and added support for b-tree and table databases, along with 
+functionality for TCLIST, TCMAP, and TCTDBQRY.
+
+--------------------------------------------------------------------------------
+
+2010-02-17
+
+binary interface:
+tc-bdb-put-tc-list -> tc-bdb-put-tc-list!
+
+table interface:
+tc-tdb-put! -> tc-tdb-put-tc-map!
+(new) tc-tdb-put! uses a tab separated column string
+
+--------------------------------------------------------------------------------
+
+2010-02-13
+
+tc-bdb-put-tc-list
+fixed "Error: bad argument type - not a pointer: #<tc-list>"

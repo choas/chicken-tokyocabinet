@@ -15,6 +15,7 @@ void *tctdbiternext(TDB tdb, ___pointer int *sp);
 bool tctdbsync(TDB tdb);
 MAP *tctdbget(TDB tdb, ___scheme_pointer pkbuf, int pksiz);
 bool tctdbput(TDB tdb, ___scheme_pointer pkbuf, int pksiz, MAP cols);
+bool tctdbput3(TDB tdb, const char *pkstr, const char *cstr);
 bool tctdbout(TDB tdb, ___scheme_pointer pkbuf, int pksiz);
 bool tctdbsetxmsiz(TDB tdb, ___s64 xmsiz);
 bool tctdbvanish(TDB tdb);

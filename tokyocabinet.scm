@@ -30,7 +30,7 @@
   TC_BDBONOLCK TC_BDBOLCKNB
   tc-bdb-open tc-bdb-close
   tc-bdb-put! tc-bdb-putdup! tc-bdb-out! tc-bdb-get
-  tc-bdb-get-tc-list tc-bdb-put-tc-list
+  tc-bdb-get-tc-list tc-bdb-put-tc-list!
   tc-bdb-fold
   tc-bdb-cur-new tc-bdb-cur-first tc-bdb-cur-next tc-bdb-cur-del
   tc-bdb-cur-key tc-bdb-cur-val tc-bdb-fwm-keys
@@ -52,7 +52,7 @@
   TC_TDBQCNEGATE TC_TDBQCNOIDX
   TC_TDBQOSTRASC TC_TDBQOSTRDESC TC_TDBQONUMASC TC_TDBQONUMDESC
   tc-tdb-open tc-tdb-close
-  tc-tdb-put! tc-tdb-out! tc-tdb-get
+  tc-tdb-put! tc-tdb-put-tc-map! tc-tdb-out! tc-tdb-get
   tc-tdb-fold
   tc-tdb-iter-init tc-tdb-iter-next tc-tdb-fold
   tc-tdb-set-index
@@ -420,7 +420,7 @@
          tc-list)))
 
 ;; delete tc-list when finished
-(define (tc-bdb-put-tc-list bdb key tc-list)
+(define (tc-bdb-put-tc-list! bdb key tc-list)
   (%tc-bdb-putdup3 bdb key (string-length key) (tc-list-ptr tc-list)))
 
 ;; delete tc-list when finished
@@ -641,7 +641,10 @@
               (tc-tdb-ptr-set! tdb #f) ; prevent further use
               #t)))
 
-(define (tc-tdb-put! tdb key tc-map)
+(define (tc-tdb-put! tdb key tscstr) ; tab separated column string
+  (%tc-tdb-put3 tdb key tscstr))
+
+(define (tc-tdb-put-tc-map! tdb key tc-map)
   (%tc-tdb-put tdb key (string-length key) tc-map))
 
 (define (tc-tdb-out! tdb key)
